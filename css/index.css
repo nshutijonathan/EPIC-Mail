@@ -1,13 +1,13 @@
 body {
   font-family: "Avenir Next";
-
-}
+  background-image:url(../images/back.png);
+  background-size:cover;
 }
 li {
   list-style: none;
 }
 .header {
-  background-color: #26d0c9;
+  background-color: /*#26d0c9*/;
   color: #fff;
   height: 90px;
 }
@@ -18,14 +18,21 @@ li {
 }
 .header-list li {
   float: right;
-  padding: 33px 20px;
+  padding: 15px 20px;
+  color: #fff;
+  background-color: #fff;
+
 }
 .main{
   padding: 100px 80px;
+  color:#fff;
+}
+.inputs{
+  color: #fff;
 }
 
 .footer {
-  background-color: #26d0c9;
+  background-color:;
   color: #fff;
   height: 90px;
 }
