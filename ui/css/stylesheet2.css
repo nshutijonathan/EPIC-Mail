@@ -1,0 +1,16 @@
+body{
+	background-color: white;
+}
+.
+.header{
+ height: 90px;
+}
+.header-logo {
+  float: left;
+  font-size: 36px;
+  padding: 20px 40px;
+}
+.header-contents li{
+  float:left;
+  padding: 33px 60px;
+}
