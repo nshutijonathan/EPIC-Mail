@@ -1,5 +1,6 @@
 body {
   font-family: "Avenir Next";
+  background-color:  #eeeeee;
 }
 
 li {
@@ -7,7 +8,12 @@ li {
   
  
 }
-
+table{
+  background-color:;
+}
+table th{
+ padding: 30px 500px;
+}
 .header {
   background: #fff;
   color:  black;
@@ -38,7 +44,8 @@ li {
   padding:100px 50px;
 }
 .copy-container h1{
-  font-size: 30px;
+  font-size: 20px;
+  text-align: center;
 }
 .copy-container h2{
   font-size: 20px;
@@ -46,12 +53,11 @@ li {
 .contents{
   height: 300px;
 }
-.content-item{
-  height: 150px;
-  float: /*left*/;
-  padding: 30px 80px;
-  text-align: center;
+.contents table{
+  color: grey;
+
 }
+
 input{
  width: 400px;
  top margin: 1px;
