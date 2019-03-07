@@ -1,0 +1,8 @@
+copyright (c) nshuti jonathan
+
+This agreement may be used to regulate the licensing of software by one business to another.
+
+The licensing provisions are relatively flexible, allowing for different types of licence and different types of licence restriction and prohibition. The document is however unsuitable for the licensing of source code; nor should it be used where the copyright in software is being transferred rather than licensed.
+
+If you need a document that covers support and maintenance, as well as licensing, you should look at our software licence, support and maintenance agreements on website-contracts.co.uk.
+
