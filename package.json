@@ -1,0 +1,22 @@
+{
+  "name": "epic-mail",
+  "version": "1.0.0",
+  "description": "Epic mail is web application  that helps people exchange messages/information over the internet.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nshutijonathan/EPIC-Mail.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nshutijonathan/EPIC-Mail/issues"
+  },
+  "homepage": "https://github.com/nshutijonathan/EPIC-Mail#readme",
+  "dependencies": {
+    "eslint": "^5.15.1"
+  }
+}
