@@ -41,7 +41,20 @@ app.post('/api/v1/users',(req,res)=>{
 	});
 
 });
+app.get('/api/v1/users/:id', (req, res)=>{
+	 const get_id=user.find(c => c.id === parseInt(req.params.id));
+     if(!get_id) res.status(402).send("id not found");
+     res.send(get_id);
+});
+app.delete('/api/v1/users/:id',(req,res)=>{
+	const get_id=user.find(c => c.id === parseInt(req.params.id));
+	if(!get_id) res.status(402).send("id not found");
 
+	const index=user.indexOf(get_id);
+	user.splice(index,1);
+	res.send(get_id);
+
+});
 const port=process.env.PORT ||3000;
 app.listen(port,()=> console.log(`listening on port ${port}`));
 export default app;
