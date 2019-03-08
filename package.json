@@ -4,7 +4,7 @@
   "description": "Epic mail is web application  that helps people exchange messages/information over the internet.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "nyc --reporter=html --reporter=text mocha --require @babel/register --timeout 10000 --exit server/tests/*.js",
     "start": "node_modules/.bin/nodemon server/server.js --exec babel-node --"
   },
   "repository": {
@@ -18,11 +18,24 @@
   },
   "homepage": "https://github.com/nshutijonathan/EPIC-Mail#readme",
   "dependencies": {
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.3.4",
+    "@babel/node": "^7.2.2",
+    "@babel/preset-env": "^7.3.4",
+    "@babel/register": "^7.0.0",
     "babel-cli": "^6.26.0",
+    "babel-polyfill": "^6.26.0",
     "babel-preset-es2015": "^6.24.1",
+    "babel-register": "^6.26.0",
     "body-parser": "^1.18.3",
+    "chai": "^4.2.0",
+    "chai-http": "^4.2.1",
     "eslint": "^5.15.1",
     "express": "^4.16.4",
-    "nodemon": "^1.18.10"
+    "nodemon": "^1.18.10",
+    "nyc": "^13.3.0"
+  },
+  "devDependencies": {
+    "mocha": "^6.0.2"
   }
 }
