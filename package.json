@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "nyc --reporter=html --reporter=text mocha --require @babel/register --timeout 10000 --exit server/tests/*.js",
-    "start": "node_modules/.bin/nodemon server/server.js --exec babel-node --"
+    "start": "node_modules/.bin/nodemon server/server.js --exec babel-node --",
+    "build": "babel server -d ./build",
+    "run_build": "node build/server.js"
   },
   "engines":{
      "node":"10.14.2"
