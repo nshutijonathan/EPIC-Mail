@@ -1,6 +1,7 @@
 
 [![Build Status](https://travis-ci.org/nshutijonathan/EPIC-Mail.svg?branch=develop)](https://travis-ci.org/nshutijonathan/EPIC-Mail)
 [![Coverage Status](https://coveralls.io/repos/github/nshutijonathan/EPIC-Mail/badge.svg?branch=ch-set-server-%23164463160)](https://coveralls.io/github/nshutijonathan/EPIC-Mail?branch=ch-set-server-%23164463160)
+[![Maintainability](https://api.codeclimate.com/v1/badges/7b5bdedbfe7dded4e8fe/maintainability)](https://codeclimate.com/github/nshutijonathan/EPIC-Mail/maintainability)
 
 # EPIC-Mail
 Epic Mail is web application  that helps people exchange messages/information over the internet.
