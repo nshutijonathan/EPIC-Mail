@@ -13,7 +13,8 @@ Epic Mail is web application  that helps people exchange messages/information ov
 
 
 ### UI link
- [EPIC-Mail](https://nshutijonathan.github.io/EPIC-Mail/ui)
+ [EPIC-Mail](https://nshutijonathan.github.io/EPIC-Mail/ui/html/)
+ 
 
 
 
