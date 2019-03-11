@@ -8,10 +8,10 @@
     "start": "node_modules/.bin/nodemon server/server.js --exec babel-node --",
     "build": "babel server -d ./build",
     "run_build": "node build/server.js",
-    "coverage":"nyc report ---reporter=text-lcov | coveralls"
+    "coverage":"nyc report --reporter=text-lcov | coveralls"
   },
-  "engines":{
-     "node":"10.14.2"
+  "engines": {
+    "node": "10.14.2"
   },
   "repository": {
     "type": "git",
@@ -36,6 +36,7 @@
     "body-parser": "^1.18.3",
     "chai": "^4.2.0",
     "chai-http": "^4.2.1",
+    "coveralls": "^3.0.3",
     "eslint": "^5.15.1",
     "express": "^4.16.4",
     "nodemon": "^1.18.10",
