@@ -1,6 +1,5 @@
 
 [![Build Status](https://travis-ci.org/nshutijonathan/EPIC-Mail.svg?branch=develop)](https://travis-ci.org/nshutijonathan/EPIC-Mail)
-
 [![Coverage Status](https://coveralls.io/repos/github/nshutijonathan/EPIC-Mail/badge.svg?branch=develop)](https://coveralls.io/github/nshutijonathan/EPIC-Mail?branch=develop)
 
 # EPIC-Mail
