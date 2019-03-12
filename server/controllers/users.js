@@ -1,4 +1,5 @@
-import user from '../modals/user';
+//import user from '../modals/user';
+import users from '../modals/user';
 
 class UsersController{
 	getALLusers(req,res){
@@ -6,7 +7,7 @@ class UsersController{
 			status:200,
 			success:"true",
 			message:"retrieved successfully",
-			users:user
+			users:users
 		});
 	}
 	getUser(req,res){

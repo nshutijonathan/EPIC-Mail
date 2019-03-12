@@ -1,18 +1,11 @@
-const users=[
-{
-	id:1,
-	email:"nshutijonathan130@gmail.com",
-	firstname:"nshuti",
-	lastnane:"jonathan",
-	password:"keke",
-},
+class users{
+	constructor(){
+		this.users=[
+		{id:1,names:"nshuti"},
+		{id:2,names:"hello"}
 
-{
-	id:2,
-	email:"muneza130@Andela.com",
-	firstname:"christian",
-	lastnane:"muneza",
-	password:"fifi",
+		];
+	}
 }
-];
-export default users
+
+export default new users
