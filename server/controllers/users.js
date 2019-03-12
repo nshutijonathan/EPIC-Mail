@@ -12,7 +12,7 @@ class UsersController{
 	getUser(req,res){
 		const get_id=user.find(c => c.id === parseInt(req.params.id));//c should be something
        if(!get_id) return res.status(402).send({
-       	status:402,//status 
+       	status:402,//status codes
      	success:"false",
      	message:"id not found"
      });
