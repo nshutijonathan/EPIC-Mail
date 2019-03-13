@@ -4,10 +4,10 @@ import server from '../server';
 chai.use(chaiHttp);
 chai.should();
 
-describe('get all contacts',()=>{
-	it('should return all contacts',(done)=>{
+describe('get all messages',()=>{
+	it('should return all messages',(done)=>{
 		chai.request(server)
-		.get('/api/v1/contacts')
+		.get('/api/v1/messages')
 		.end((err,res)=>{
 			console.log(res.body);
 			res.body.should.be.an('object');
@@ -21,10 +21,10 @@ describe('get all contacts',()=>{
 	});
 
 });
-describe('get one contact',()=>{
-	it('should be able to get one contact',(done)=>{
+describe('get one message',()=>{
+	it('should be able to get one message',(done)=>{
 		chai.request(server)
-		.get('/api/v1/contacts/1')
+		.get('/api/v1/messages/1')
 		.end((err,res)=>{
 			res.body.should.be.an('object');
 			res.body.should.have.property('status').eql(200);
@@ -34,9 +34,9 @@ describe('get one contact',()=>{
 		});
 
 	});
-	it('should not be able to get one contact',(done)=>{
+	it('should not be able to get one message',(done)=>{
 		chai.request(server)
-		.get('/api/v1/contacts/2345')
+		.get('/api/v1/messages/2345')
 		.end((err,res)=>{
 			res.body.should.be.an('object');
 			res.body.should.have.property('status').eql(404);
@@ -50,16 +50,18 @@ describe('get one contact',()=>{
 
 });
 
-describe('Creating a contact',()=>{
-	it('should create a contact',(done)=>{
-		const contacts ={
-			email:"kuku@gmail.com",
-			firstname:"lulu",
-			lastname:"kendla"
+describe('Creating a message',()=>{
+	it('should create a message',(done)=>{
+		const messages ={
+			  createdOn: "may/02/2018",
+              subject: "'Invitation",
+              message: "hello i love you",
+              parentMessageId: "1234",
+              status: "uread"
 		};
 		chai.request(server)
-		.post('/api/v1/contacts')
-		.send(contacts)
+		.post('/api/v1/messages')
+		.send(messages)
 		.end((err,res)=>{
 			console.log(res.body);
 			res.body.should.be.an('object');
@@ -72,31 +74,32 @@ describe('Creating a contact',()=>{
 		
 
 	});
-	it('should not be able to create a user',(done)=>{
-		 const contacts={
-		 	email:"",
-		 	firstname:"lulu",
-			lastname:"kendla",
-			password:"zero"
+	it('should not be able to create a message',(done)=>{
+		 const messages={
+		 	  createdOn: "",
+              subject: "'Invitation",
+              message: "hello i love you",
+              parentMessageId: "1234",
+              status: "uread"
 		 };
 		 chai.request(server)
-		 .post('/api/v1/contacts')
-		 .send(contacts)
+		 .post('/api/v1/messages')
+		 .send(messages)
 		 .end((err,res)=>{
 		 	console.log(res.body);
 		 	res.body.should.be.an('object');
 		 	res.body.should.have.property('status').eql(400);
 		 	res.body.should.have.property('success').eql("false");
-		 	res.body.should.have.property('message').eql("email is required");
+		 	res.body.should.have.property('message').eql("createdOn is required");
 		 	done();
 		 });
 	});
 
 });
-describe('deleting a contact',()=>{
-	it('should delete a contact',(done)=>{
+describe('deleting a message',()=>{
+	it('should delete a message',(done)=>{
      chai.request(server)
-     .delete('/api/v1/contacts/1')
+     .delete('/api/v1/messages/1')
      .end((err,res)=>{
      	res.body.should.be.an('object');
      	res.body.should.have.property("status").eql(200);
@@ -105,9 +108,9 @@ describe('deleting a contact',()=>{
      	done();
     });
 	});
-	it('should not be able to delate a contact',(done)=>{
+	it('should not be able to delete a message',(done)=>{
 		chai.request(server)
-		.delete('/api/v1/contacts/45678')
+		.delete('/api/v1/messages/45678')
 		.end((err,res)=>{
 			res.body.should.be.an('object');
 			res.body.should.have.property("status").eql(404);
