@@ -1,7 +1,7 @@
 import contacts from '../modals/contacts';
 
 class ContactsController{
-	getALLcontacts(req,res){
+	static getALLcontacts(req,res){
 		return res.status(200).send({
 			status:200,
 			success:"true",
@@ -9,7 +9,7 @@ class ContactsController{
 			contacts:contacts
 		});
 	}
-	get_one_contact(req,res){
+	static get_one_contact(req,res){
 		const get_id=contacts.find(check_id => check_id.id === parseInt(req.params.id));//c argument should be something
        if(!get_id) return res.status(402).send({
        	status:404,//status codes
@@ -23,7 +23,7 @@ class ContactsController{
        		get_id,
        	});
 	}
-	createcontact(req,res){
+	static createcontact(req,res){
 		const add={
 		id:contacts.length+1,
 		email:req.body.email,
@@ -43,7 +43,7 @@ class ContactsController{
 		add
 	});
 	}
-	deletecontact(req,res){
+	static deletecontact(req,res){
 		const get_id=contacts.find(check_id => check_id.id === parseInt(req.params.id));
 	if(!get_id) return res.status(404).send({
 		status:404,
@@ -61,7 +61,7 @@ class ContactsController{
 	});
 	}
 }
-const usercontacts=new ContactsController();
-export default usercontacts;
+//const usercontacts=new ContactsController();
+export default ContactsController;
 
  

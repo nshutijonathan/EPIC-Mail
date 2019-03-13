@@ -1,7 +1,7 @@
 import messages from '../modals/messages';
 
 class MessagesController{
-	getALLmessages(req,res){
+	static getALLmessages(req,res){
 		return res.status(200).send({
 			status:200,
 			success:"true",
@@ -9,8 +9,8 @@ class MessagesController{
 			messages:messages
 		});
 	}
-	get_one_message(req,res){
-		const get_id=messages.find(check_id => check_id.id === parseInt(req.params.id));//c argument should be something
+	static get_one_message(req,res){
+		const get_id=messages.find(check_id => check_id.id=== parseInt(req.params.id));//c argument should be something
        if(!get_id) return res.status(402).send({
        	status:404,//status codes
      	success:"false",
@@ -23,7 +23,7 @@ class MessagesController{
        		get_id,
        	});
 	}
-	createmessage(req,res){
+	static createmessage(req,res){
 		const add={
 		id:messages.length+1,
 		createdOn:req.body.createdOn,
@@ -70,7 +70,7 @@ class MessagesController{
 		add
 	});
 	}
-	deletemessage(req,res){
+	static deletemessage(req,res){
 		const get_id=messages.find(check_id => check_id.id === parseInt(req.params.id));
 	if(!get_id) return res.status(404).send({
 		status:404,
@@ -88,7 +88,7 @@ class MessagesController{
 	});
 	}
 }
-const usermessages=new MessagesController();
-export default usermessages;
+//const usermessages=new MessagesController();
+export default MessagesController;
 
  

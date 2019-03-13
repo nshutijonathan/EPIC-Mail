@@ -1,6 +1,5 @@
 import express from 'express';
 import bodyParser from 'body-parser';
-import user from './modals/user';//not recommended
 import router from './routes/routes.js';
 //set up the express app
 
