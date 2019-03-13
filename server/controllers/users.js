@@ -10,7 +10,7 @@ class UsersController{
 		});
 	}
 	getUser(req,res){
-		const get_id=user.find(c => c.id === parseInt(req.params.id));//c should be something
+		const get_id=user.find(check_id => check_id.id === parseInt(req.params.id));//c should be something
        if(!get_id) return res.status(402).send({
        	status:402,//status codes
      	success:"false",
@@ -45,7 +45,7 @@ class UsersController{
 	});
 	}
 	updateUser(req,user){
-		const get_id=user.find(c => c.id === parseInt(req.params.id));
+		const get_id=user.find(check_id => check_id.id === parseInt(req.params.id));
      if(!get_id) return res.status(402).send({
      	status:402,
      	success:"false",
@@ -75,7 +75,7 @@ class UsersController{
      });
 	}
 	deleteUser(req,res){
-		const get_id=user.find(c => c.id === parseInt(req.params.id));
+		const get_id=user.find(check_id => check_id.id === parseInt(req.params.id));
 	if(!get_id) return res.status(402).send({
 		status:402,
 		success:"false",
