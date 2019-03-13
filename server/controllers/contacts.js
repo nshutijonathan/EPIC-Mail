@@ -12,7 +12,7 @@ class ContactsController{
 	get_one_contact(req,res){
 		const get_id=contacts.find(check_id => check_id.id === parseInt(req.params.id));//c argument should be something
        if(!get_id) return res.status(402).send({
-       	status:402,//status codes
+       	status:404,//status codes
      	success:"false",
      	message:"id not found"
      });
@@ -30,14 +30,14 @@ class ContactsController{
 		firstname:req.body.firstname,
 		lastname:req.body.lastname,
 	}
-	if(!add.email) return res.status(402).send({
-		status:402,
+	if(!add.email) return res.status(400).send({
+		status:400,
 		success:"false",
 		message:"email is required"
 	});
 	contacts.push(add);
-	 return res.status(200).send({
-		status:200,
+	 return res.status(201).send({
+		status:201,
 		success:"true",
 		message:"successfully added",
 		add
@@ -45,8 +45,8 @@ class ContactsController{
 	}
 	deletecontact(req,res){
 		const get_id=contacts.find(check_id => check_id.id === parseInt(req.params.id));
-	if(!get_id) return res.status(402).send({
-		status:402,
+	if(!get_id) return res.status(404).send({
+		status:404,
 		success:"false",
 		message:"id not found"
 	});
