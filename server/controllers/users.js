@@ -1,7 +1,7 @@
 import user from '../modals/user';
 
 class UsersController{
-	getALLusers(req,res){
+	static getALLusers(req,res){
 		return res.status(200).send({
 			status:200,
 			success:"true",
@@ -9,7 +9,7 @@ class UsersController{
 			users:user
 		});
 	}
-	getUser(req,res){
+	static getUser(req,res){
 		const get_id=user.find(check_id => check_id.id === parseInt(req.params.id));//c should be something
        if(!get_id) return res.status(402).send({
        	status:402,//status codes
@@ -23,7 +23,7 @@ class UsersController{
        		get_id,
        	});
 	}
-	createUser(req,res){
+	static createUser(req,res){
 		const add={
 		id:user.length+1,
 		email:req.body.email,
@@ -44,7 +44,7 @@ class UsersController{
 		add
 	});
 	}
-	updateUser(req,user){
+	static updateUser(req,user){
 		const get_id=user.find(check_id => check_id.id === parseInt(req.params.id));
      if(!get_id) return res.status(402).send({
      	status:402,
@@ -74,7 +74,7 @@ class UsersController{
      	get_id
      });
 	}
-	deleteUser(req,res){
+	static deleteUser(req,res){
 		const get_id=user.find(check_id => check_id.id === parseInt(req.params.id));
 	if(!get_id) return res.status(402).send({
 		status:402,
@@ -92,7 +92,7 @@ class UsersController{
 	});
 	}
 }
-const userController=new UsersController();
-export default userController;
+
+export default UsersController;
 
  
