@@ -1,41 +1,39 @@
 import express from 'express';
 //import user from '../modals/user';
-import userController from '../controllers/users';
-import usercontacts from'../controllers/contacts';
-import usermessages from '../controllers/messages';
-import usersents from '../controllers/sents';
+import UsersController  from '../controllers/users';
+import ContactsController from'../controllers/contacts';
+import MessagesController from '../controllers/messages';
+import SentsController from '../controllers/sents';
+import InboxController from '../controllers/inbox';
 
 const router=express.Router();
 //users api Endpoints
-router.get('/api/v1/users', userController.getALLusers);
-router.get('/api/v1/users/:id', userController.getUser);
-router.post('/api/v1/users', userController.createUser);
-//router.put('/api/v1/users/:id',userController.updateUser);
-router.delete('/api/v1/users/:id', userController.deleteUser);
+router.get('/api/v1/users', UsersController.getALLusers);//userController
+router.get('/api/v1/users/:id', UsersController.getUser);
+router.post('/api/v1/users', UsersController.createUser);
+router.delete('/api/v1/users/:id', UsersController.deleteUser);
 
 
 //contacts api Endpoints
-router.get('/api/v1/contacts',usercontacts.getALLcontacts);
-router.get('/api/v1/contacts/:id',usercontacts.get_one_contact);
-router.post('/api/v1/contacts',usercontacts.createcontact);
-router.delete('/api/v1/contacts/:id',usercontacts.deletecontact);
+router.get('/api/v1/contacts',ContactsController.getALLcontacts);//usercontacts
+router.get('/api/v1/contacts/:id',ContactsController.get_one_contact);
+router.post('/api/v1/contacts',ContactsController.createcontact);
+router.delete('/api/v1/contacts/:id',ContactsController.deletecontact);
 
 
 //messsages api endpoints
-router.get('/api/v1/messages',usermessages.getALLmessages);
-router.get('/api/v1/messages/:id',usermessages.get_one_message);
-router.post('/api/v1/messages',usermessages.createmessage);
-router.delete('/api/v1/messages/:id',usermessages.deletemessage);
+router.get('/api/v1/messages',MessagesController.getALLmessages);//usermessages
+router.get('/api/v1/messages/:id',MessagesController.get_one_message);
+router.post('/api/v1/messages',MessagesController.createmessage);
+router.delete('/api/v1/messages/:id',MessagesController.deletemessage);
 
 //sent messages api endpoints
-router.get('/api/v1/sents',usersents.getsents);
-router.get('/api/v1/sents/:id',usersents.get_one_sent);
-router.post('/api/v1/sents',usersents.createsent);
-router.delete('/api/v1/sents/:id',usersents.deletesent);
-//inbox messages api endpoints
-//router.get('/api/v1/inbox',InboxController.getsents);
-//router.get('/api/v1/inbox/:id',usersents.get_one_sent);
-//router.post('/api/v1/inbox',usersents.createsent);
-//router.delete('/api/v1/inbox/:id',usersents.deletesent);
+router.get('/api/v1/sents',SentsController.getsents);//usersents
+router.get('/api/v1/sents/:id',SentsController.get_one_sent);
+router.post('/api/v1/sents',SentsController.createsent);
+router.delete('/api/v1/sents/:id',SentsController.deletesent);
 
+//inbox messages api endpoints
+router.get('/api/v1/inbox',InboxController.getALLinbox);
+router.get('/api/v1/inbox/:id',InboxController.get_one_inbox);
 export default router;
