@@ -1,16 +1,16 @@
-import sents from '../modals/sents';
-
+//import sents from '../models/sents';
+import {Sents,sentsArray} from '../models/sents' 
 class SentsController{
 	static getsents(req,res){
 		return res.status(200).send({
 			status:200,
 			success:"true",
 			message:"retrieved successfully",
-			sents, 
+			sentsArray, 
 		});
 	}
 	static get_one_sent(req,res){
-	const get_id=sents.find(check_id => check_id.senderid=== parseInt(req.params.id));
+	const get_id=sentsArray.find(check_id => check_id.senderid=== parseInt(req.params.id));
        if(!get_id) return res.status(402).send({
        	status:404,//status codes
      	success:"false",
@@ -24,24 +24,24 @@ class SentsController{
        	});
 	}
 	static createsent(req,res){
-		const add={
-		senderId:sents.length+1,
+		const add=new Sents({
+		senderId:sentsArray.length+1,
 		messageId:req.body.messageId,
 		createdOn:req.body.createdOn
-	}
-	if(!add.messageId) return res.status(400).send({
+	})
+	if(!req.body.messageId) return res.status(400).send({
 		status:400,
 		success:"false",
 		message:"messageId is required"
 	});
-	if(!add.createdOn) return res.status(400).send({
+	if(!req.body.createdOn) return res.status(400).send({
 		status:400,
 		success:"false",
 		message:"createdOn is required"
 
 	});
 	
-	 sents.push(add);
+	 sentsArray.push(add);
 	 return res.status(201).send({
 		status:"201",
 		success:"true",
@@ -50,15 +50,15 @@ class SentsController{
 	});
 	}
 	static deletesent(req,res){
-		const get_id=sents.find(check_id => check_id.senderid === parseInt(req.params.id));
+		const get_id=sentsArray.find(check_id => check_id.senderid === parseInt(req.params.id));
 	if(!get_id) return res.status(404).send({
 		status:404,
 		success:"false",
 		message:"id not found"
 	});
 
-	const index=sents.indexOf(get_id);
-	sents.splice(index,1);
+	const index=sentsArray.indexOf(get_id);
+	sentsArray.splice(index,1);
 	return res.status(200).send({
 		status:200,
 		success:"true",
