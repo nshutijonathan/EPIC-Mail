@@ -32,5 +32,10 @@ router.get('/api/v1/sents',usersents.getsents);
 router.get('/api/v1/sents/:id',usersents.get_one_sent);
 router.post('/api/v1/sents',usersents.createsent);
 router.delete('/api/v1/sents/:id',usersents.deletesent);
+//inbox messages api endpoints
+//router.get('/api/v1/inbox',InboxController.getsents);
+//router.get('/api/v1/inbox/:id',usersents.get_one_sent);
+//router.post('/api/v1/inbox',usersents.createsent);
+//router.delete('/api/v1/inbox/:id',usersents.deletesent);
 
 export default router;
