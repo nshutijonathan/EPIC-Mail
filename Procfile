@@ -1,1 +1,1 @@
-web :node_modules/.bin/nodemon server/server.js --exec babel-node --
+web :node  --exec @babel/register server/server.js
