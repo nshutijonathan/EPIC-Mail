@@ -71,7 +71,7 @@ class MessagesController{
 	});
 	}
 	static deletemessage(req,res){
-		const get_id=messages.find(check_id => check_id.id === parseInt(req.params.id));
+		const get_id=messages.find(check_id => check_id.id=== parseInt(req.params.id));
 	if(!get_id) return res.status(404).send({
 		status:404,
 		success:"false",
