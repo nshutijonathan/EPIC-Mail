@@ -10,7 +10,7 @@ class SentsController{
 		});
 	}
 	static get_one_sent(req,res){
-	const get_id=sents.find(check_id => check_id.id=== parseInt(req.params.id));
+	const get_id=sents.find(check_id => check_id.senderid=== parseInt(req.params.id));
        if(!get_id) return res.status(402).send({
        	status:404,//status codes
      	success:"false",
@@ -43,14 +43,14 @@ class SentsController{
 	
 	 sents.push(add);
 	 return res.status(201).send({
-		status:201,
+		status:"201",
 		success:"true",
 		message:"successfully added",
 		add
 	});
 	}
 	static deletesent(req,res){
-		const get_id=sents.find(check_id => check_id.id === parseInt(req.params.id));
+		const get_id=sents.find(check_id => check_id.senderid === parseInt(req.params.id));
 	if(!get_id) return res.status(404).send({
 		status:404,
 		success:"false",
