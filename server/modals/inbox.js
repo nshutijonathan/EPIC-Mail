@@ -11,4 +11,4 @@ const inbox=[
 	createdon:'12/04/2000'
 }
 ];
-export default inbox
+export default inbox;
