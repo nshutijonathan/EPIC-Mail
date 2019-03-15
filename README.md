@@ -15,7 +15,44 @@ Epic Mail is web application  that helps people exchange messages/information ov
 ### UI link
  [EPIC-Mail](https://nshutijonathan.github.io/EPIC-Mail/ui/html/)
  
+## Tools Used
 
+### Language
+```
+*Javascript*
+```
+### Server Environment
+```
+ *NodeJS* (run time Environment for running JS codes)
+ ```
+### Framework
+```
+ *Express* (used for building fast APIs)
+ ```
+### Testing Framework
+```
+ *Mocha* and *Chai*
+ ```
+### Style Guide
+```
+*Airbnb*
+```
+### Continuous Integration
+```
+Travis CI
+```
+### Test Coverage
+```
+nyc
+```
+### Git badge
+```
+coveralls
+```
+### Deployment
+```
+Heroku
+```
 
 
  
