@@ -5,6 +5,7 @@ import ContactsController from'../controllers/contacts';
 import MessagesController from '../controllers/messages';
 import SentsController from '../controllers/sents';
 import InboxController from '../controllers/inbox';
+import UnreadController from '../controllers/unread';
 
 const router=express.Router();
 //users api Endpoints
@@ -36,4 +37,7 @@ router.delete('/api/v1/sents/:id',SentsController.deletesent);
 //inbox messages api endpoints
 router.get('/api/v1/inbox',InboxController.getALLinbox);
 router.get('/api/v1/inbox/:id',InboxController.get_one_inbox);
+
+//unread messages api
+router.get('/api/v1/message/unread',UnreadController.getunread);//usersents
 export default router;

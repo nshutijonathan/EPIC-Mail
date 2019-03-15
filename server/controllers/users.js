@@ -1,8 +1,12 @@
 //import user from '../models/user';
-import { Users, usersArray } from '../models/user'
+import { Users, usersArray } from '../models/user';
 
+import validate from '../validations/validate'
+
+import Joi from 'joi';
 class UsersController{
 	static getALLusers(req,res){
+
 		return res.send({
 			status:200,
 			success:"true",
@@ -26,6 +30,14 @@ class UsersController{
        	});
 	}
 	static createUser(req,res){
+		const { error } = validate.validateuser(req.body);
+		if(error) return res.status(402).send({
+			status: 402,
+			success:"false",
+			message:"id not found",
+			error: error.details[0].message
+		});
+
 		const add= new Users({
 		id:usersArray.length+1,
 		email:req.body.email,
@@ -45,6 +57,7 @@ class UsersController{
 		message:"successfully added",
 		add
 	});
+
 	}
 	static deleteUser(req,res){
 		const get_id=usersArray.find(check_id => check_id.id === parseInt(req.params.id));
@@ -63,6 +76,16 @@ class UsersController{
 		get_id
 	});
 	}
+	// validateuser = (user) => {
+	// 	console.log(validateuser);
+	// 	// const schema = {
+	// 	// 	email:Joi.string().email().min(2).max(20).required(),
+	// 	// 	firstname:Joi.string().alphanum().min(2).max(20).required(),
+	// 	// 	lastname:Joi.string().alphanum().min(2).max(20).required(),
+	// 	// 	password:Joi.string().alphanum().min(2).max(20).required(),
+	// 	// }
+	// 	// return Joi.validate(user, schema);
+	// };
 }
 
 export default UsersController;

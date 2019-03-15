@@ -1,5 +1,7 @@
 //import contacts from '../models/contacts';
-import { Contacts,contactsArray} from '../models/contacts'
+import { Contacts,contactsArray} from '../models/contacts';
+
+import  validate from '../validations/validate'
 class ContactsController{
 	static getALLcontacts(req,res){
 		return res.status(200).send({
@@ -24,17 +26,26 @@ class ContactsController{
        	});
 	}
 	static createcontact(req,res){
+		const { error } = validate.validatecontact(req.body);
+		if(error) return res.status(402).send({
+			status: 402,
+			success:"false",
+			message:"lastname not found",
+			error: error.details[0].message
+		});
+
 		const add=new Contacts({
 		id:contactsArray.length+1,
 		email:req.body.email,
 		firstname:req.body.firstname,
 		lastname:req.body.lastname,
-	})
-	if(!req.body.email) return res.status(400).send({
-		status:400,
-		success:"false",
-		message:"email is required"
 	});
+	
+	//if(!req.body.email) return res.status(400).send({
+		//status:400,
+		//success:"false",
+		//message:"email is required"
+	//});
 	contactsArray.push(add);
 	 return res.status(201).send({
 		status:201,

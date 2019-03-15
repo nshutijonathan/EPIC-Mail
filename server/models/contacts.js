@@ -3,14 +3,14 @@ const contactsArray= [
 	id:1,
 	email:"nshutijonathan130@gmail.com",
 	firstname:"nshuti",
-	lastnane:"jonathan"
+	lastname:"jonathan"
 },
 
 {
 	id:1,
 	email:"nshutijonathan130@gmail.com",
 	firstname:"nshuti",
-	lastnane:"jonathan"
+	lastname:"jonathan"
 }
 ]
 

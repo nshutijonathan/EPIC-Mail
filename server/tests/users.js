@@ -34,6 +34,7 @@ describe('get one user',()=>{
 		});
 
 	});
+
 	it('should not be able to get one user',(done)=>{
 		chai.request(server)
 		.get('/api/v1/users/2345')
@@ -46,7 +47,7 @@ describe('get one user',()=>{
 
 		});
 
-	});
+   	});
 
 });
 
@@ -73,25 +74,7 @@ describe('Creating a user',()=>{
 		
 
 	});
-	it('should not be able to create a user',(done)=>{
-		 const user={
-		 	email:"",
-		 	firstname:"lulu",
-			lastname:"kendla",
-			password:"zero"
-		 };
-		 chai.request(server)
-		 .post('/api/v1/users')
-		 .send(user)
-		 .end((err,res)=>{
-		 	console.log(res.body);
-		 	res.body.should.be.an('object');
-		 	res.body.should.have.property('status').eql(402);
-		 	res.body.should.have.property('success').eql("false");
-		 	res.body.should.have.property('message').eql("email is required");
-		 	done();
-		 });
-	});
+	
 
 });
 describe('deleting a user',()=>{
