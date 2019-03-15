@@ -36,10 +36,10 @@ describe('get one contact',()=>{
 	});
 	it('should not be able to get one contact',(done)=>{
 		chai.request(server)
-		.get('/api/v1/contacts/2345')
+		.get('/api/v1/contacts/1234567')
 		.end((err,res)=>{
 			res.body.should.be.an('object');
-			res.body.should.have.property('status').eql(404);
+			res.body.should.have.property('status').eql(402);
 			res.body.should.have.property('success').eql("false");
 			res.body.should.have.property('message').eql("id not found");
 			done();
