@@ -1,14 +1,33 @@
-const inbox=[
+const inboxArray= [
 {
-	receiverid:1,
+    receiverid:1,
 	messageid:'2345',
 	createdon:'12/04/2008'
 },
 
 {
-	receiverid:2,
+    receiverid:2,
 	messageid:'2345',
-	createdon:'12/04/2000'
+	createdon:"12/04/2008"
 }
-];
-export default inbox;
+
+]
+
+class Inbox{
+    constructor({
+        receiverid,
+        messageid,
+        createdon
+
+    }){
+        this.receiverid=receiverid;
+        this.messageid=messageid;
+        this.createdon=createdon;
+    }
+
+    
+}
+
+export {Inbox,inboxArray};
+
+

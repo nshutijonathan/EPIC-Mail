@@ -1,4 +1,4 @@
-const users=[
+const usersArray= [
 {
 	id:1,
 	email:"nshutijonathan130@gmail.com",
@@ -14,5 +14,27 @@ const users=[
 	lastnane:"muneza",
 	password:"fifi",
 }
-];
-export default users
+]
+
+class Users {
+	constructor({
+		id,
+		email,
+		firstname,
+		lastname,
+		password
+	}){
+		this.id = id;
+		this.email = email;
+		this.firstname = firstname;
+		this.lastname = lastname;
+		this.password = password;
+
+	}
+
+	
+}
+
+export {Users, usersArray };
+
+
