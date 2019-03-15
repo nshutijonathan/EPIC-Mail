@@ -22,9 +22,13 @@ Epic Mail is web application  that helps people exchange messages/information ov
 ## ENDPOINTS
 
 | / | GET | The index (welcome Messages) |
+
 | /api/v1/messages/message/:id | GET | Fetch a specific email |
+
 | /api/v1/messages/unread/messages | GET | Fetch all unread messages |
+
 | /api/v1/messages | POST | Create an email |
+
 | /api/v1/messages/message/:id | DELETE | Delete a specific email |
  
 ## Tools Used
