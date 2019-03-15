@@ -26,11 +26,8 @@ Epic Mail is web application  that helps people exchange messages/information ov
 | / | GET | The index (welcome message) |
 | /api/v1/messages | GET | Fetch all emails |
 | /api/v1/messages/message/:id | GET | Fetch a specific email |
-| /api/v1/messages/unread/messages | GET | Fetch all unread messages |
 | /api/v1/messages | POST | Create an email |
 | /api/v1/messages/message/:id | DELETE | Delete a specific email |
-| /api/v1/messages/message/:id | PATCH | Update a specific email |
-| /api/v1/messages/read/messages | GET | GET all read messages |
 | /api/v1/contacts | POST | Create a contact |
 | /api/v1/contacts | GET | Get all contacts |
 | /api/v1/contacts/:id | GET | Get a specific contact |
