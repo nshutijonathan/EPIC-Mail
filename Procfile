@@ -1,1 +1,1 @@
-web :node  --exec @babel/register server/server.js
+web :node --require @babel/register server/server.js
