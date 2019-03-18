@@ -20,6 +20,11 @@ class Validate {
 	
 	return Joi.validate(contact, schema2);
 }
+    validatemessage(message){
+    	const schema3={
+    		
+    	}
+    }
 };
 
 

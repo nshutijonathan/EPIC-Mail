@@ -7,7 +7,7 @@ const contactsArray= [
 },
 
 {
-	id:1,
+	id:2,
 	email:"nshutijonathan130@gmail.com",
 	firstname:"nshuti",
 	lastname:"jonathan"
@@ -20,11 +20,13 @@ class Contacts{
 		email,
 		firstname,
 		lastname
+		
 	}){
 		this.id = id;
 		this.email = email;
 		this.firstname = firstname;
 		this.lastname = lastname;
+
 
 	}
 
