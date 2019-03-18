@@ -20,12 +20,12 @@ class UsersController{
         if(!get_id) return res.status(402).send({
        	status:402,//status codes
      	success:"false",
-     	message:"id not found"
+     	message:"User  not found"
      });
        	 return res.status(200).send({
        		status:200,
        		success:'true',
-       		message:'id retrieved successfully',
+       		message:'user retrieved successfully',
        		get_id,
        	});
 	}
@@ -52,9 +52,9 @@ class UsersController{
 	});
 	usersArray.push(add);
 	 return res.status(200).send({
-		status:200,
+		status:201,
 		success:"true",
-		message:"successfully added",
+		message:"User successfully created",
 		add
 	});
 
@@ -64,7 +64,7 @@ class UsersController{
 	if(!get_id) return res.status(402).send({
 		status:402,
 		success:"false",
-		message:"id not found"
+		message:"User not found"
 	});
 
 	const index=usersArray.indexOf(get_id);
@@ -72,7 +72,7 @@ class UsersController{
 	return res.status(200).send({
 		status:200,
 		success:"true",
-		message:"successfully deleted",
+		message:"User successfully deleted",
 		get_id
 	});
 	}

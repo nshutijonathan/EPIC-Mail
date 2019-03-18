@@ -14,12 +14,12 @@ class InboxController{
        if(!get_id) return res.status(402).send({
        	status:404,//status codes
      	success:"false",
-     	message:"id not found"
+     	message:"Message not found"
      });
        	 return res.status(200).send({
        		status:200,
        		success:'true',
-       		message:'id retrieved successfully',
+       		message:'message retrieved successfully',
        		data:get_id
        	});
 	}

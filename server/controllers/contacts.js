@@ -16,7 +16,7 @@ class ContactsController{
         if(!get_id) return res.status(402).send({
        	status:402,//status codes
      	success:"false",
-     	message:"id not found"
+     	message:"contacts not found"
      });
        	 return res.status(200).send({
        		status:200,
@@ -30,7 +30,7 @@ class ContactsController{
 		if(error) return res.status(402).send({
 			status: 402,
 			success:"false",
-			message:"lastname not found",
+			message:"not created ",
 			error: error.details[0].message
 		});
 
