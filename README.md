@@ -18,6 +18,11 @@ Epic Mail is web application  that helps people exchange messages/information ov
 
 [EPIC Email link](https://epic-mail-one.herokuapp.com)
 
+### clone the Application
+
+[Github](https://github.com/nshutijonathan/EPIC-Mail)
+
+
 ## API ENDPOINTS
 
 | Ressource URL | Methods  | Description  |
@@ -35,6 +40,13 @@ Epic Mail is web application  that helps people exchange messages/information ov
 | /api/v1/users/:id | GET | Get  a specific contact users |
 | /api/v1/users/| POST | Create Users |
 | /api/v1/users/:id| Delete | Delete a user |
+
+## Required features
+* User should Create a user account.
+* User should Sign in
+* User should Get all received emails 
+* User should Get all emails sent 
+
  
 ## Tools Used
 
@@ -44,11 +56,11 @@ Epic Mail is web application  that helps people exchange messages/information ov
 ```
 ### Server Environment
 ```
- *NodeJS* (run time Environment for running JS codes)
+ *NodeJS* 
  ```
 ### Framework
 ```
- *Express* (used for building fast APIs)
+ *Express* 
  ```
 ### Testing Framework
 ```
@@ -81,7 +93,7 @@ These instructions will get you a copy of the project up and running on your loc
 To install the software on your local machine, you need first to clone the repository or download the zip file and once this is set up you are going to need this packages. [NodeJS]
 
 ```
- [Node Package Installer - NPM] this usually comes with Node or YARN in case NPM doesn't work.
+ [Node Package Installer - NPM] this usually comes with Node.
 ```
 
 ## Installing
@@ -111,5 +123,5 @@ Jonathan Nshuti <nshutijonathan130@gmail.com>
 ---
 
 ## License & copyright
-Copyright (c) Jonathan NSHUTI, Software developer 
+Copyright (c) Jonathan NSHUTI, Software developer
  
