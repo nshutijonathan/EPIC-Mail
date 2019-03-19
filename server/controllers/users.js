@@ -1,70 +1,49 @@
 //import user from '../models/user';
-import { Users, usersArray } from '../models/user'
-
+//import { Users, usersArray } from '../models/user'
+//import {db }from '../database/db';
+//import pool from '../database/db';
+ // shared connection object;
+import pool from '../database/db';    
 class UsersController{
 	static getALLusers(req,res){
-		return res.send({
-			status:200,
-			success:"true",
-			message:"retrieved successfully",
-			data:usersArray
-		});
+		pool.query('SELECT * FROM users ORDER BY id ASC', (error, results) => {
+    if (error) {
+      throw error
+    }
+    res.status(200).json(results.rows)
+  })
+   
 	}
-
+	
 	static getUser(req,res){
-	 const get_id=usersArray.find((check_id) => check_id.id === parseInt(req.params.id));//c should be something
-        if(!get_id) return res.status(402).send({
-       	status:402,//status codes
-     	success:"false",
-     	message:"id not found"
-     });
-       	 return res.status(200).send({
-       		status:200,
-       		success:'true',
-       		message:'id retrieved successfully',
-       		get_id,
-       	});
+		const id=parseInt(req.params.id)
+		pool.query('SELECT * FROM users where id=$1',[id],(error,results)=>{
+			if (error) {
+				throw error
+			}
+			res.status(200).json(results.rows)
+		})
+   
 	}
 	static createUser(req,res){
-		const add= new Users({
-		id:usersArray.length+1,
-		email:req.body.email,
-		firstname:req.body.firstname,
-		lastname:req.body.lastname,
-		password:req.body.password
-	})
-	if(!req.body.email) return res.status(402).send({
-		status:402,
-		success:"false",
-		message:"email is required"
-	});
-	usersArray.push(add);
-	 return res.status(200).send({
-		status:200,
-		success:"true",
-		message:"successfully added",
-		add
-	});
+		const {id,email,firstname,lastname,password}=req.body;
+		pool.query('INSERT INTO users (id,email,firstname,lastname,password) VALUES ($1,$2,$3,$4,$5)',[id,email,firstname,lastname,password],
+			(error,results)=>{
+				if(error){
+					throw error
+				}
+				res.status(201).send(`User added with ID: ${results.insertId}`);
+			})
 	}
 	static deleteUser(req,res){
-		const get_id=usersArray.find(check_id => check_id.id === parseInt(req.params.id));
-	if(!get_id) return res.status(402).send({
-		status:402,
-		success:"false",
-		message:"id not found"
-	});
+		const id = parseInt(req.params.id)
 
-	const index=usersArray.indexOf(get_id);
-	usersArray.splice(index,1);
-	return res.status(200).send({
-		status:200,
-		success:"true",
-		message:"successfully deleted",
-		get_id
-	});
+       pool.query('DELETE FROM users WHERE id = $1', [id], (error, results) => {
+    if (error) {
+      throw error
+			}
+			res.status(200).send(`User deleted with ID: ${id}`)
+		})
 	}
-}
-
-export default UsersController;
-
- 
+ }
+ export default UsersController;
