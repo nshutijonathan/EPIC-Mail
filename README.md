@@ -27,9 +27,9 @@ Epic Mail is web application  that helps people exchange messages/information ov
 
 | Ressource URL | Methods  | Description  |
 | ------- | --- | --- |
-| / | GET | The index (welcome message) |
-| /api/v1/messages | GET | Fetch all emails |
-| /api/v1/messages/:id | GET | Fetch a specific email |
+| / | GET | The index page |
+| /api/v1/messages | GET | Fetch all messages |
+| /api/v1/messages/:id | GET | Fetch a specific mail |
 | /api/v1/messages | POST | Create an email |
 | /api/v1/messages/message/:id | DELETE | Delete a specific email |
 | /api/v1/contacts | GET | Get all contacts |
@@ -46,6 +46,8 @@ Epic Mail is web application  that helps people exchange messages/information ov
 * User should Sign in
 * User should Get all received emails 
 * User should Get all emails sent 
+* User should Get all unread emails
+* User should Delete an email in a user’s inbox
 
  
 ## Tools Used
@@ -90,7 +92,7 @@ Heroku
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
 ## Prerequisites
-To install the software on your local machine, you need first to clone the repository or download the zip file and once this is set up you are going to need this packages. [NodeJS]
+To install the software on your local machine, you need first to clone the repository or download the zip file and once this is set up you are going to need this packages.
 
 ```
  [Node Package Installer - NPM] this usually comes with Node.
@@ -114,14 +116,11 @@ It will install the node_modules which will help you run the project on your loc
 > npm test
 ```
 
-
-**Version 1.0.0**
-
 ## Contributor
 Jonathan Nshuti <nshutijonathan130@gmail.com>
 
 ---
 
 ## License & copyright
-Copyright (c) Jonathan NSHUTI, Software developer
+jonathan NSHUTI
  
