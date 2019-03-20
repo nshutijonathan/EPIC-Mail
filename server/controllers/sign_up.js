@@ -24,11 +24,39 @@ class User{
       		result:result.rows[0]
       	});
       })
-
-
-  
-
 })
 }
+     static sign_in(req,res){
+     	const data={
+     		email:req.body.email,
+     		password:req.body.password
+     	}
+     	pool.connect((err,client,done)=>{
+     		const query="SELECT * FROM users WHERE email=$1";
+     		const values=[req.body.email]
+     		client.query(query,values,(error,result)=>{
+     			console.log(result);
+     		
+     			if(error){
+     				res.status(404).json({error});
+           
+     			}
+     			if(!result.rows[0]){
+     				res.status(404).send({
+     					status:404,
+     					error:'INVALID EMAIL OR password'
+     				});
+
+     			}
+     			else{
+     				res.status(200).send({
+     					status:200,
+     					message:'Logged in successfully'
+     			})
+     		}
+
+     		});
+     	});
+     }
 }
 export default User;
