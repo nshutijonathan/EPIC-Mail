@@ -16,7 +16,7 @@ router.post('/api/v1/users', UsersController.createUser);
 router.delete('/api/v1/users/:id', UsersController.deleteUser);
 
 //Register a user endpoints
-router.post('/api/v2/users/signup',User.sign_up);
+router.post('/api/v2/auth/signup',User.sign_up);
 
 
 //contacts api Endpoints

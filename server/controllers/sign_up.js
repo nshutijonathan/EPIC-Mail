@@ -4,8 +4,8 @@ class User{
 	static sign_up(req,res){
 		const data = {
 	  email:req.body.email,		
-      firstname : req.body.firstName,
-      lastname : req.body.lastName,
+      firstname : req.body.firstname,
+      lastname : req.body.lastname,
       password : req.body.password,
     }
 	pool.connect((err, client, done) => {
@@ -13,13 +13,15 @@ class User{
       const values = [data.email,data.firstname, data.lastname, data.password];
 
       client.query(query,values,(error,result)=>{
+      	console.log(result);
       	done();
       	if (error){
       		res.status(400).json({error});
       	}
-      	res.status(202).send({
-      		status:'202',
-      		result:result.rows[0],
+      	res.status(201).send({
+      		status:'201',
+      		message:"successfully",
+      		result:result.rows[0]
       	});
       })
 

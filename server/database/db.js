@@ -12,7 +12,7 @@ console.log('connected to the database');
 //create tables
 export const createTables=()=>{
 	//users table
-	const usersTable= `CREATE TABLE IF NOT EXIST
+	const usersTable= `CREATE TABLE IF NOT EXISTS
 	users(
 	userID SERIAL PRIMARY KEY NOT NULL,
 	email VARCHAR(20) NOT NULL,
@@ -40,3 +40,5 @@ export const createTables=()=>{
 
 }
 export default pool ;
+////This exposes the exports to the running CLI
+require('make-runnable');
