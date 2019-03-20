@@ -1,12 +1,12 @@
 import express from 'express';
-//import user from '../modals/user';
-//import user from '../modals/user';
+
 import UsersController  from '../controllers/users';
 import ContactsController from'../controllers/contacts';
 import MessagesController from '../controllers/messages';
 import SentsController from '../controllers/sents';
 import InboxController from '../controllers/inbox';
 import User from '../controllers/sign_up';
+import Messages from '../controllers/messages';
 const router=express.Router();
 //users api Endpoints
 router.get('/api/v1/users', UsersController.getALLusers);//userController
@@ -27,7 +27,7 @@ router.post('/api/v2/auth/signin',User.sign_in);
 
 
 //messsages api endpoints
-//router.get('/api/v1/messages',MessagesController.getALLmessages);//usermessages
+router.post('/api/v2/messages',Messages.Createmsg);//usermessages
 //router.get('/api/v1/messages/:id',MessagesController.get_one_message);
 //router.post('/api/v1/messages',MessagesController.createmessage);
 //router.delete('/api/v1/messages/:id',MessagesController.deletemessage);

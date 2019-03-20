@@ -36,6 +36,33 @@ export const createTables=()=>{
 		process.exit(0);
 
 	});
+	const messages=`CREATE TABLE IF NOT EXISTS
+	messages(
+	messageID SERIAL PRIMARY KEY NOT NULL,
+	createdon VARCHAR(20) NOT NULL,
+	subject VARCHAR(20) NOT NULL,
+	message VARCHAR(20) NOT NULL,
+	parentmessageid VARCHAR(50) NOT NULL,
+	status VARCHAR(20) NOT NULL
+	)
+	`;
+	pool.query(messages)
+	.then((res)=>{
+		console.log(res);
+		pool.end();
+
+	})
+	.catch((err)=>{
+		console.log(err);
+		pool.end();
+
+	})
+	pool.on('remove',()=>{
+		console.log('client removed');
+		process.exit(0);
+
+	});
+
 
 
 }
