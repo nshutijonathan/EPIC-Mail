@@ -6,7 +6,7 @@ import ContactsController from'../controllers/contacts';
 import MessagesController from '../controllers/messages';
 import SentsController from '../controllers/sents';
 import InboxController from '../controllers/inbox';
-
+import User from '../controllers/sign_up';
 const router=express.Router();
 //users api Endpoints
 router.get('/api/v1/users', UsersController.getALLusers);//userController
@@ -14,6 +14,9 @@ router.get('/api/v1/users/:id', UsersController.getUser);
 router.post('/api/v1/users', UsersController.createUser);
 //router.put('/api/v1/users/:id',UsersController.updateUser);
 router.delete('/api/v1/users/:id', UsersController.deleteUser);
+
+//sign up endpoints
+router.post('/api/v2/users/signup',User.sign_up);
 
 
 //contacts api Endpoints
