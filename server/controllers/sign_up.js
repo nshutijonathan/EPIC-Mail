@@ -32,8 +32,8 @@ class User{
      		password:req.body.password
      	}
      	pool.connect((err,client,done)=>{
-     		const query="SELECT * FROM users WHERE email=$1";
-     		const values=[req.body.email]
+     		const query="SELECT * FROM users WHERE email=$1 AND password=$2";
+     		const values=[req.body.email,req.body.password]
      		client.query(query,values,(error,result)=>{
      			console.log(result);
      		
