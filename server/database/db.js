@@ -16,8 +16,8 @@ export const createTables=()=>{
 	users(
 	userID SERIAL PRIMARY KEY NOT NULL,
 	email VARCHAR(20) NOT NULL,
-	firstName VARCHAR(20) NOT NULL,
-	lastName VARCHAR(20) NOT NULL,
+	firstname VARCHAR(20) NOT NULL,
+	lastname VARCHAR(20) NOT NULL,
 	password VARCHAR(50) NOT NULL
 	)`;
 	pool.query(usersTable)

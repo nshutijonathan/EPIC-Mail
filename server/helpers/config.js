@@ -1,4 +1,4 @@
- const keys={
-	secret : "heymynameismohamedaymen"
-}
-export default keys;
+ export const secret= {
+    'secret': 'mysecret'
+};
+export default secret;

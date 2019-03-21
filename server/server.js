@@ -10,7 +10,7 @@ app.use(bodyParser.urlencoded({extended:false}));
 app.use(router);
 //get welcome message
 app.get('/',(req,res)=>{
-	res.send("welcome to epic mail");
+	res.status(200).send("welcome to epic mail");
 });
 
 const port=process.env.PORT ||3000;
