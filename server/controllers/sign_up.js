@@ -3,6 +3,7 @@ import {secret,verifyToken} from '../helpers/config';
 import pool from '../database/db';
 import JWT from 'jsonwebtoken';
 import Validations from '../validations/Validations'
+import bcrypt from 'bcrypt';
 class User{
   static sign_up(req,res){
     const validate = Validations.userSignup(req.body);
@@ -20,8 +21,12 @@ class User{
       password : req.body.password,
     }
   pool.connect((err, client, done) => {
-      const query = "INSERT INTO users(email,firstname,lastname, password) VALUES($1,$2,$3,$4) RETURNING *";
-      const values = [data.email,data.firstname, data.lastname, data.password];
+    bcrypt.hash(data.password,10,(error, hash) => {
+      if(error){
+        console.log(error);
+      }else{
+        const query = "INSERT INTO users(email,firstname,lastname, password) VALUES($1,$2,$3,$4) RETURNING *";
+      const values = [data.email,data.firstname, data.lastname, hash];
 
       client.query(query,values,(error,result)=>{
         console.log(result);
@@ -40,6 +45,9 @@ class User{
           //result:result.rows[0]
         });
       })
+      }
+    })
+      
 })
 }
      static sign_in(req,res){
