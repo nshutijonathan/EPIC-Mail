@@ -1,6 +1,6 @@
 import chai from 'chai';
 import chaiHttp from 'chai-http';
-import server from '../server';
+import app from '../server';
 
 chai.should();
 chai.use(chaiHttp);
@@ -8,7 +8,7 @@ var token='';
 
  describe('Welcome page', () => {
     it('it should open the first page', (done) => {
-      chai.request(server)
+      chai.request(app)
         .get('/')
         .end((err, res) => {
           res.should.have.status(200);
@@ -19,7 +19,7 @@ var token='';
   });
   describe('User registration',()=>{
   	it('it should sign up the user',(done)=>{
-  		chai.request(server)
+  		chai.request(app)
   		.post('/api/v2/auth/signup')
   		.send({
   			email:"aime@gmail.com",
@@ -30,13 +30,12 @@ var token='';
   		.end((err,res)=>{
   			res.should.have.status(201);
   			res.body.should.be.an('object');
-  			res.body.data.should.be.a('object');
-  			token = res.body.data[0].token;
+  			res.body.data.should.be.an('object');
   			done();
   		})
   	})
   	it('it should not create user bcz empty fields',(done)=>{
-  		chai.request(server)
+  		chai.request(app)
   		.post('/api/v2/auth/signup')
   		.send({
   			email:'',
@@ -45,7 +44,7 @@ var token='';
   			password:'uhuru'
   		})
   		.end((err,res)=>{
-  			res.should.have.status(400);
+  			res.should.have.status(422);
   			res.body.should.be.an('object');
   			done();
   		})
