@@ -1,14 +1,15 @@
 
 import pool from '../database/db';
-
+import JWT from 'jsonwebtoken';
+import {keys,verifyToken}  from '../helpers/config';
 class Messages{
 	static Createmsg(req,res){
 		const data = {
 	    createdon:req.body.createdon,		
-      subject:req.body.subject,
-      message:req.body.message,
-      parentmessageid:req.body.parentmessageid,
-      status:req.body.status
+          subject:req.body.subject,
+          message:req.body.message,
+          parentmessageid:req.body.parentmessageid,
+          status:req.body.status
     }
 	pool.connect((err, client, done) => {
       const query = 'INSERT INTO messages(createdon,subject,message,parentmessageid,status) VALUES($1,$2,$3,$4,$5) RETURNING *';

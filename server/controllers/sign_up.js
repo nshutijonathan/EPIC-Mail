@@ -1,5 +1,7 @@
-
+import express from 'express';
+import {keys,verifyToken} from '../helpers/config';
 import pool from '../database/db';
+import JWT from 'jsonwebtoken';
 class User{
 	static sign_up(req,res){
 		const data = {
@@ -18,10 +20,14 @@ class User{
       	if (error){
       		res.status(400).json({error});
       	}
+        //token generation
+        const token = JWT.sign({email:data.email}, keys.secret, {expiresIn: 86400});
       	res.status(201).send({
       		status:'201',
-      		message:"successfully",
-      		result:result.rows[0]
+      		data:{
+            token:token
+          }
+      		//result:result.rows[0]
       	});
       })
 })
@@ -49,9 +55,13 @@ class User{
 
      			}
      			else{
+            //toke generation
+            const token = JWT.sign({email:data.email}, keys.secret, {expiresIn: 86400});
      				res.status(200).send({
      					status:200,
-     					message:'Logged in successfully'
+     					data:{
+                token:token
+              }
      			})
      		}
 
