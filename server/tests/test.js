@@ -30,6 +30,7 @@ var token='';
   		.end((err,res)=>{
   			res.should.have.status(201);
   			res.body.should.be.an('object');
+  			res.body.data.should.be.a('object');
   			token = res.body.data[0].token;
   			done();
   		})
