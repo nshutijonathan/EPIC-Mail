@@ -28,18 +28,18 @@ Epic Mail is web application  that helps people exchange messages/information ov
 | Ressource URL | Methods  | Description  |
 | ------- | --- | --- |
 | / | GET | The index page |
-| /api/v1/messages | GET | Fetch all messages |
-| /api/v1/messages/:id | GET | Fetch a specific mail |
-| /api/v1/messages | POST | Create an email |
-| /api/v1/messages/message/:id | DELETE | Delete a specific email |
-| /api/v1/contacts | GET | Get all contacts |
-| /api/v1/contacts/:id | GET | Get a specific contact |
-| /api/v1/contacts | POST | Create a contact |
-| /api/v1/contacts/:id | DELETE | Delete a contact |
-| /api/v1/users|GET |Get all users|
-| /api/v1/users/:id | GET | Get  a specific contact users |
-| /api/v1/users/| POST | Create Users |
-| /api/v1/users/:id| Delete | Delete a user |
+| /api/v2/auth/signup| POST | Sign up |
+| /api/v2/auth/signin| POST | Sign in |
+| /api/v2/messages | POST | Create an email |
+| /api/v2/messages/message/:id | DELETE | Delete a specific email |
+| /api/v2/contacts | GET | Get all contacts |
+| /api/v2/contacts/:id | GET | Get a specific contact |
+| /api/v2/contacts | POST | Create a contact |
+| /api/v2/contacts/:id | DELETE | Delete a contact |
+| /api/v2/users|GET |Get all users|
+| /api/v2/users/:id | GET | Get  a specific contact users |
+| /api/v2/users/| POST | Create Users |
+| /api/v2/users/:id| Delete | Delete a user |
 
 ## Required features
 * User should Create a user account.
