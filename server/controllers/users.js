@@ -1,8 +1,3 @@
-//import user from '../models/user';
-//import { Users, usersArray } from '../models/user'
-//import {db }from '../database/db';
-//import pool from '../database/db';
- // shared connection object;
 import pool from '../database/db';    
 class UsersController{
 	static getALLusers(req,res){
