@@ -5,7 +5,7 @@ import {keys,verifyToken}  from '../helpers/config';
 class Messages{
 	static Createmsg(req,res){
 		const data = {
-	    createdon:req.body.createdon,		
+          createdon:req.body.createdon,		
           subject:req.body.subject,
           message:req.body.message,
           parentmessageid:req.body.parentmessageid,
@@ -30,6 +30,28 @@ class Messages{
       })
 })
 }
+     static getallmessages(req,res){
+      const data={
+          createdon:req.body.createdon,  
+      }
+      pool.connect((err,client,done)=>{
+        const query='SELECT * FROM messages WHERE createdon=$1';
+        const values=[req.body.createdon]
+        client.query(query,values,(error,result)=>{
+          if(error) console.log(error);
+          console.log(result);
+          done();
+          if(error){
+            res.status(400).json({error});
+          }
+          res.status(200).send({
+            status:'200',
+            message:"successfully",
+            result:result.rows[0]
+          })
+        })
+      })
+     }
 
 }
 export default Messages;

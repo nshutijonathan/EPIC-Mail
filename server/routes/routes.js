@@ -11,4 +11,5 @@ router.post('/api/v2/auth/signin',User.sign_in);
 
 //messsages api endpoints
 router.post('/api/v2/messages',Messages.Createmsg);
+router.get('/api/v2/messages',Messages.getallmessages);
 export default router;
