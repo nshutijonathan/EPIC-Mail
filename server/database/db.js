@@ -15,10 +15,10 @@ export const createTables=()=>{
 	const usersTable= `CREATE TABLE IF NOT EXISTS
 	users(
 	userID SERIAL PRIMARY KEY NOT NULL,
-	email VARCHAR(20) NOT NULL,
+	email VARCHAR(20) NOT NULL UNIQUE,
 	firstname VARCHAR(20) NOT NULL,
 	lastname VARCHAR(20) NOT NULL,
-	password VARCHAR(50) NOT NULL
+	password VARCHAR(300) NOT NULL
 	)`;
 	pool.query(usersTable)
 	.then((res)=>{

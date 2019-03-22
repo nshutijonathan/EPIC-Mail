@@ -8,10 +8,9 @@ class User{
   static sign_up(req,res){
     const validate = Validations.userSignup(req.body);
       if (validate.error) {
-        console.log(validate.error);
-        return res.status(422).json({
-          status: 422,
-          error : validate.error
+        return res.status(400).json({
+          status: 400,
+          error : validate.error["details"][0]["message"]
         })
       }
     const data = {
@@ -29,21 +28,20 @@ class User{
       const values = [data.email,data.firstname, data.lastname, hash];
 
       client.query(query,values,(error,result)=>{
-        console.log(result);
-        done();
         if (error){
-          console.log(error);
-           return res.status(400).json({error});
+          if(error.routine === '_bt_check_unique') return res.status(409).send({ status:409, error: 'Account with this email already exist' });
+           //return res.status(400).send({error.detail});
+        }else{
+          //token generation
+          const token = JWT.sign({email:data.email}, secret.secret,{expiresIn: 86400});
+          return res.status(201).send({
+            status:'201',
+            data:{
+              token:token
+            }
+            //result:result.rows[0]
+          });
         }
-        //token generation
-        const token = JWT.sign({email:data.email}, secret.secret,{expiresIn: 86400});
-        return res.status(201).send({
-          status:'201',
-          data:{
-            token:token
-          }
-          //result:result.rows[0]
-        });
       })
       }
     })
@@ -53,9 +51,9 @@ class User{
      static sign_in(req,res){
       const validate = Validations.userLogin(req.body);
       if (validate.error) {
-        return res.status(422).json({
-          status: 422,
-          error : validate.error
+        return res.status(400).json({
+          status: 400,
+          error : validate.error["details"][0]["message"]
         })
       }
       const data={
@@ -66,20 +64,20 @@ class User{
         const query="SELECT * FROM users WHERE email=$1 AND password=$2";
         const values=[req.body.email,req.body.password]
         client.query(query,values,(error,result)=>{
-          console.log(result);
+          //console.log(result);
         
           if(error){
             console.log(error)
-            return res.status(404).json({error});
+            return res.status(400).json({error});
            
           }
-          if(!result.rows[0]){
-            return res.status(404).send({
-              status:404,
-              error:'INVALID EMAIL OR password'
-            });
+          //if(!result.rows[0]){
+            //return res.status(400).send({
+              //status:400,
+              //error:'INVALID EMAIL OR password'
+            //});
 
-          }
+          //}
           else{
             //toke generation
             const token = JWT.sign({email:data.email}, secret.secret, {expiresIn: 86400});
